@@ -23,6 +23,7 @@ struct ContentView: View {
                     }
                 }
                 .onDelete(perform: deleteItems)
+                
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -42,6 +43,7 @@ struct ContentView: View {
     private func addItem() {
         withAnimation {
             let newItem = Item(timestamp: Date())
+            print("nihao")
             modelContext.insert(newItem)
         }
     }

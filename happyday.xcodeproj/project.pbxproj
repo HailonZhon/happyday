@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B176A082B5F01D500704115 /* VideoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B176A072B5F01D500704115 /* VideoService.swift */; };
+		8B176A0A2B5F01FC00704115 /* VideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B176A092B5F01FC00704115 /* VideoViewModel.swift */; };
+		8B176A0C2B5F026700704115 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B176A0B2B5F026700704115 /* Models.swift */; };
+		8B176A0E2B5F033F00704115 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B176A0D2B5F033F00704115 /* VideoPlayerView.swift */; };
+		8B176A102B5F038200704115 /* VideoSearchView_Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B176A0F2B5F038200704115 /* VideoSearchView_Previews.swift */; };
 		8BE40E622B5E168C006E5E59 /* happydayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE40E612B5E168C006E5E59 /* happydayApp.swift */; };
 		8BE40E642B5E168C006E5E59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE40E632B5E168C006E5E59 /* ContentView.swift */; };
 		8BE40E662B5E168C006E5E59 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE40E652B5E168C006E5E59 /* Item.swift */; };
@@ -15,6 +20,7 @@
 		8BE40E772B5E168D006E5E59 /* happydayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE40E762B5E168D006E5E59 /* happydayTests.swift */; };
 		8BE40E812B5E168D006E5E59 /* happydayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE40E802B5E168D006E5E59 /* happydayUITests.swift */; };
 		8BE40E832B5E168D006E5E59 /* happydayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE40E822B5E168D006E5E59 /* happydayUITestsLaunchTests.swift */; };
+		8BE40E922B5E28AC006E5E59 /* VideoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE40E912B5E28AC006E5E59 /* VideoSearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B176A072B5F01D500704115 /* VideoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoService.swift; sourceTree = "<group>"; };
+		8B176A092B5F01FC00704115 /* VideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewModel.swift; sourceTree = "<group>"; };
+		8B176A0B2B5F026700704115 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		8B176A0D2B5F033F00704115 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		8B176A0F2B5F038200704115 /* VideoSearchView_Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSearchView_Previews.swift; sourceTree = "<group>"; };
 		8BE40E5E2B5E168C006E5E59 /* happyday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = happyday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BE40E612B5E168C006E5E59 /* happydayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = happydayApp.swift; sourceTree = "<group>"; };
 		8BE40E632B5E168C006E5E59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +59,7 @@
 		8BE40E7C2B5E168D006E5E59 /* happydayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = happydayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BE40E802B5E168D006E5E59 /* happydayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = happydayUITests.swift; sourceTree = "<group>"; };
 		8BE40E822B5E168D006E5E59 /* happydayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = happydayUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8BE40E912B5E28AC006E5E59 /* VideoSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +117,12 @@
 				8BE40E6C2B5E168D006E5E59 /* happyday.entitlements */,
 				8BE40E6D2B5E168D006E5E59 /* Info.plist */,
 				8BE40E692B5E168D006E5E59 /* Preview Content */,
+				8BE40E912B5E28AC006E5E59 /* VideoSearchView.swift */,
+				8B176A072B5F01D500704115 /* VideoService.swift */,
+				8B176A092B5F01FC00704115 /* VideoViewModel.swift */,
+				8B176A0B2B5F026700704115 /* Models.swift */,
+				8B176A0D2B5F033F00704115 /* VideoPlayerView.swift */,
+				8B176A0F2B5F038200704115 /* VideoSearchView_Previews.swift */,
 			);
 			path = happyday;
 			sourceTree = "<group>";
@@ -264,9 +282,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE40E922B5E28AC006E5E59 /* VideoSearchView.swift in Sources */,
 				8BE40E642B5E168C006E5E59 /* ContentView.swift in Sources */,
 				8BE40E662B5E168C006E5E59 /* Item.swift in Sources */,
 				8BE40E622B5E168C006E5E59 /* happydayApp.swift in Sources */,
+				8B176A0A2B5F01FC00704115 /* VideoViewModel.swift in Sources */,
+				8B176A082B5F01D500704115 /* VideoService.swift in Sources */,
+				8B176A0C2B5F026700704115 /* Models.swift in Sources */,
+				8B176A0E2B5F033F00704115 /* VideoPlayerView.swift in Sources */,
+				8B176A102B5F038200704115 /* VideoSearchView_Previews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,7 +25,9 @@ struct happydayApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            VideoSearchView()
+//            LoginView()
+//            ContentView()
         }
         .modelContainer(sharedModelContainer)
     }
