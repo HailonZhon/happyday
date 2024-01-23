@@ -7,8 +7,9 @@
 import Foundation
 
 class VideoService {
-    func fetchVideos(keyword: String, completion: @escaping ([Video]) -> Void) {
-        let urlString = "http://192.168.28.36:8000/get_videos_by_kw/?keyword=\(keyword)&page=0"
+    func fetchVideos(keyword: String, page: Int, completion: @escaping ([Video]) -> Void) {
+        let urlString = "http://192.168.28.36:8000/get_videos_by_kw/?keyword=\(keyword)&page=\(page)"
+
         guard let url = URL(string: urlString) else { return }
         print("Fetching URL: \(urlString)")
 
