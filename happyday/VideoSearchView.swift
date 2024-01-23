@@ -10,27 +10,31 @@ struct VideoSearchView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                  TextField("Search", text: $searchText, onCommit: {
-                      // 搜索并收起键盘
-                      viewModel.searchVideos(keyword: searchText)
-                      dismissKeyboard()
-                  })
-                  .padding()
-                  .textFieldStyle(RoundedBorderTextFieldStyle())
+            VStack(spacing: -20) {
+                HStack {
+                    TextField("Search", text: $searchText, onCommit: {
+                        // 搜索并收起键盘
+                        viewModel.searchVideos(keyword: searchText)
+                        dismissKeyboard()
+                    })
+                    .padding(10)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(width: 300) // 设置搜索框的宽度
 
-                  Button(action: {
-                      // 搜索并收起键盘
-                      viewModel.searchVideos(keyword: searchText)
-                      dismissKeyboard()
-                  }) {
-                      Text("Search")
-                          .frame(minWidth: 0, maxWidth: .infinity)
-                          .padding()
-                          .background(Color.blue)
-                          .foregroundColor(.white)
-                          .cornerRadius(10)
-                  }
+                    Button(action: {
+                        // 搜索并收起键盘
+                        viewModel.searchVideos(keyword: searchText)
+                        dismissKeyboard()
+                    }) {
+                        Text("Search")
+                            .font(.system(size: 14)) // 设置字体大小
+                            .padding(8)
+                            .frame(width: 80, height: 40) // 设置按钮的尺寸
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                }
                 .padding()
                 
                 ScrollView {
@@ -57,7 +61,7 @@ struct VideoSearchView: View {
                    }.padding(.horizontal)
                 }
             }
-            .navigationBarTitle("Video Search")
+            .navigationBarTitle("HAPPY EVERY DAY ")
             .sheet(isPresented: $isShowingPlayer) {
                 if let url = selectedVideoUrl {
                     VideoPlayerView(url: url)
