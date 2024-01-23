@@ -8,22 +8,28 @@
 import Foundation
 
 struct Video: Identifiable, Codable {
-    // 如果您决定使用 `link` 作为唯一标识符
+    // 使用 'link' 作为唯一标识符
     var id: String { link }
     
     var link: String
     var title: String
     var duration: String
-    var m3u8Url: String
+    var author: String
+    var viewTimes: String
     var posterUrl: String
 
     enum CodingKeys: String, CodingKey {
         case link
         case title
         case duration
-        case m3u8Url = "m3u8_url"
-        case posterUrl = "poster_url"
+        case author
+        case viewTimes = "view_times"
+        case posterUrl = "pic"
     }
+}
+// 对应于接口返回的 JSON 结构
+struct VideoURLResponse: Codable {
+    let m3u8_url: String
 }
 
 

@@ -8,13 +8,18 @@ import Foundation
 
 class VideoService {
     func fetchVideos(keyword: String, completion: @escaping ([Video]) -> Void) {
-        let urlString = "http://192.168.28.36:8000/get_videos/?keyword=\(keyword)&page=0"
+        let urlString = "http://192.168.28.36:8000/get_videos_by_kw/?keyword=\(keyword)&page=0"
         guard let url = URL(string: urlString) else { return }
         print("Fetching URL: \(urlString)")
 
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else {
-                print("Network error: \(error?.localizedDescription ?? "Unknown error")")
+            print("Received response from network.")
+            if let error = error {
+                print("Network error: \(error.localizedDescription)")
+                return
+            }
+            guard let data = data else {
+                print("No data received from network.")
                 return
             }
 
@@ -25,43 +30,41 @@ class VideoService {
                 DispatchQueue.main.async {
                     completion(videos)
                     print("Fetched Videos: \(videos)")
-                    self.saveVideosAsJSON(videos)
                 }
             } catch {
                 print("JSON Decoding Error: \(error)")
             }
         }.resume()
     }
-//    使用缓存Videos构建
-    func loadCachedVideos(completion: @escaping ([Video]) -> Void) {
-        let fileName = getDocumentsDirectory().appendingPathComponent("videos.json")
-        do {
-            let jsonData = try Data(contentsOf: fileName)
-            let videos = try JSONDecoder().decode([Video].self, from: jsonData)
-            completion(videos)
-        } catch {
-            print("Failed to load cached videos: \(error)")
-            completion([]) // 如果加载失败，返回空数组
+    func fetchVideoURL(videoLink: String, completion: @escaping (String?) -> Void) {
+        // Modify this URL to your actual video URL fetching endpoint
+        let encodedVideoLink = videoLink.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let urlString = "http://192.168.28.36:8000/get_video_url/?video_link=\(encodedVideoLink)"
+        guard let url = URL(string: urlString) else {
+            print("Invalid URL: \(urlString)")
+            completion(nil)
+            return
         }
-    }
 
-
-    private func saveVideosAsJSON(_ videos: [Video]) {
-        print("Attempting to save videos as JSON")
-        do {
-            let jsonData = try JSONEncoder().encode(videos)
-            let jsonString = String(data: jsonData, encoding: .utf8)
-            let fileName = getDocumentsDirectory().appendingPathComponent("videos.json")
-            try jsonString?.write(to: fileName, atomically: true, encoding: .utf8)
-            print("Saved to \(fileName.path)")
-        } catch {
-            print("Failed to save videos as JSON: \(error)")
-        }
-    }
-
-    private func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("Error fetching video URL: \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            guard let data = data else {
+                print("No data received.")
+                completion(nil)
+                return
+            }
+            
+            do {
+                let videoURLResponse = try JSONDecoder().decode(VideoURLResponse.self, from: data)
+                completion(videoURLResponse.m3u8_url)
+            } catch {
+                print("JSON Decoding Error: \(error)")
+                completion(nil)
+            }
+        }.resume()
     }
 }
-
